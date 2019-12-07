@@ -1,0 +1,26 @@
+Vagrant.configure("2") do |config|
+
+
+	
+	  config.vm.define "postgres1" do |postgres1|
+	  postgres1.vm.box = "centos/7"
+	    postgres1.vm.hostname = "postgres1"
+		postgres1.vm.network "private_network", ip: "192.168.5.8"
+		postgres1.vm.provider "virtualbox" do |vb|
+		vb.memory = "1024"
+		vb.cpus = 2
+		end
+	  end
+	  
+	  config.vm.define "postgres2" do |postgres2|
+	  postgres2.vm.box = "centos/7"
+	    postgres2.vm.hostname = "postgres2"
+		postgres2.vm.network "private_network", ip: "192.168.5.9"
+		postgres2.vm.provider "virtualbox" do |vb|
+		vb.memory = "1024"
+		vb.cpus = 2
+		end
+	  end
+	 
+
+end
